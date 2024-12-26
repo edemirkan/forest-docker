@@ -14,8 +14,8 @@ ENV PUID=1000
 ################## BEGIN INSTALLATION ######################
 
 # Create the application user
-RUN userdel -r $(getent passwd $UID | cut -d: -f1) \
- && useradd -u $UID -m -d $HOME $USER
+RUN userdel -r $(getent passwd $PUID | cut -d: -f1) \
+ && useradd -u $PUID -m -d $HOME $USER
 
 # Create required directories
 RUN mkdir -p $HOME/saves $HOME/config
